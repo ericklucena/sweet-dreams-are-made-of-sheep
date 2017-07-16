@@ -59,11 +59,21 @@ public class GameController
     public void AddSheepPoint()
     {
         if (Running)
-            SheepPoints += POINTS_PER_SHEEP;
+        {
+			SheepPoints += POINTS_PER_SHEEP;
+			Sleepness += 0.25f;
+        }
 
-        Sleepness += 0.25f;
-        
     }
+
+	public void RemoveSheepPoint()
+	{
+		if (Running) 
+        {
+			Sleepness -= 0.12f;
+        }
+
+	}
 
     public void RefreshTimePoints() {
         if (Running)
