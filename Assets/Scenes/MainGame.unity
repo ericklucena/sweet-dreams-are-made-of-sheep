@@ -969,7 +969,22 @@ Prefab:
         type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 726c46f29fe1a46d1a877d782fc12688, type: 2}
+      objectReference: {fileID: 2100000, guid: cb083fd52ca7c482fb812c3921320b92, type: 2}
+    - target: {fileID: 199697228895352628, guid: 527b2a595cabf4e3eadb01c5817cca2c,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198884400861521446, guid: 527b2a595cabf4e3eadb01c5817cca2c,
+        type: 2}
+      propertyPath: InitialModule.maxNumParticles
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 198884400861521446, guid: 527b2a595cabf4e3eadb01c5817cca2c,
+        type: 2}
+      propertyPath: randomSeed
+      value: -2109302039
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 527b2a595cabf4e3eadb01c5817cca2c, type: 2}
   m_IsPrefabParent: 0
