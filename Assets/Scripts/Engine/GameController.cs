@@ -5,6 +5,9 @@ using UnityEngine;
 public class GameController
 {
     public int Speed { get; set; }
+    public float XCenter { get; private set; }
+    public float XLeft { get; private set; }
+	public float XRight { get; private set; }
 
 	public static GameController Instance
 	{
@@ -19,7 +22,11 @@ public class GameController
 
     public GameController(){
         Speed = 1;
+        XCenter = 0;
+        XRight = -3.5f;
+        XLeft = 3.5f;
     }
 
 	private static GameController _instance;
+
 }
