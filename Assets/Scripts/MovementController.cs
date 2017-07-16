@@ -32,7 +32,7 @@ public class MovementController : MonoBehaviour
     {
 
 		if (m_Rigidbody2D.velocity.y < 0.1)
-			m_Rigidbody2D.velocity = new Vector2(0, 1);
+            m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x, 1);
 
         /*if (transform.position != EndPoint.position && (m_Rigidbody2D.position.x < 0 || 0 < m_Rigidbody2D.position.x))
 		{
@@ -40,13 +40,6 @@ public class MovementController : MonoBehaviour
 			transform.position = Vector3.MoveTowards(transform.position, EndPoint.position, step);
 		}*/
 
-        float xvelocity = 0;
-
-        if (m_Rigidbody2D.position.x > 0)
-            xvelocity = -0.05f;
-        else if (m_Rigidbody2D.position.x < 0)
-            xvelocity = 0.05f;
-
-        m_Rigidbody2D.velocity = new Vector2(xvelocity, m_Rigidbody2D.velocity.y * (-GameController.Instance.Speed));
+        m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x, m_Rigidbody2D.velocity.y * (-GameController.Instance.Speed));
 	}
 }
