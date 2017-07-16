@@ -26,11 +26,36 @@ public class PlayerController : MonoBehaviour {
 	void FixedUpdate () {
         if (GameController.Instance.Running)
         {
-			float x = Input.GetAxis(InputMapper.HORIZONTAL);
-			_behaviour.Move(x);
-			GameController.Instance.RefreshTimePoints();
+            KeyboardControls();
+            TouchControls();
         }
 	}
+
+    void TouchControls() {
+        
+		var bottomLeft = new Rect(0, 0, Screen.width / 2, Screen.height);
+		var bottomRight = new Rect(Screen.width / 2, 0, Screen.width / 2, Screen.height);
+		// Calculate other rectangles
+
+		if (Input.touchCount > 0)
+		{
+            if (bottomLeft.Contains(Input.GetTouch(0).position)) {
+				_behaviour.Move(-1);
+                Debug.Log("Top left touched");
+            } else if (bottomRight.Contains(Input.GetTouch(0).position)) {
+				_behaviour.Move(1);            
+            }
+
+			// Detect other quadrants
+		}
+    }
+
+    void KeyboardControls() 
+    {
+		float x = Input.GetAxis(InputMapper.HORIZONTAL);
+		_behaviour.Move(x);
+		GameController.Instance.RefreshTimePoints();
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
