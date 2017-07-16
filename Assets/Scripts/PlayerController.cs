@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -26,12 +26,14 @@ public class PlayerController : MonoBehaviour {
 	void FixedUpdate () {
         float x = Input.GetAxis(InputMapper.HORIZONTAL);
         _behaviour.Move(x);
+        GameController.Instance.RefreshTimePoints();
 	}
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
 		if (collision.gameObject.CompareTag("Obstacle"))
 		{
+            GameController.Instance.StopGame();
             GameController.Instance.RestartAfterDeath();
 		}
         else if (collision.gameObject.CompareTag("Sheep"))
@@ -40,8 +42,9 @@ public class PlayerController : MonoBehaviour {
             ParticleSystem particle = _behaviour.gameObject.GetComponent<ParticleSystem>();
             particle.Play();
 
-			Destroy(collision.gameObject);
-			_AddLife();
+			GameController.Instance.AddSheepPoint();
+            Destroy(collision.gameObject);
+            _AddLife();
 		}
         else if (collision.gameObject.CompareTag("Enemy")){
             Destroy(collision.gameObject);
