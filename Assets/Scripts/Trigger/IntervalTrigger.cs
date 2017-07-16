@@ -16,7 +16,7 @@ public class IntervalTrigger : MonoBehaviour {
 	}
 	
 	void Update () {
-        if (ShouldTrigger)
+        if (ShouldTrigger && GameController.Instance.Playing)
             Trigger();
 	}
 

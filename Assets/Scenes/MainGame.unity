@@ -246,13 +246,17 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: EmissionModule.m_Bursts.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4666830291859008, guid: 8a39b443f0e344ca1a7c0726403ca894, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.05
       objectReference: {fileID: 0}
     - target: {fileID: 4666830291859008, guid: 8a39b443f0e344ca1a7c0726403ca894, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 3.19
       objectReference: {fileID: 0}
     - target: {fileID: 4666830291859008, guid: 8a39b443f0e344ca1a7c0726403ca894, type: 2}
       propertyPath: m_LocalPosition.z
@@ -277,6 +281,86 @@ Prefab:
     - target: {fileID: 4666830291859008, guid: 8a39b443f0e344ca1a7c0726403ca894, type: 2}
       propertyPath: m_RootOrder
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: randomSeed
+      value: 1907970830
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: ShapeModule.type
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: ShapeModule.arc.mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: ShapeModule.radius.value
+      value: 0.59161115
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: ShapeModule.donutRadius
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: ShapeModule.angle
+      value: 4.36445
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: autoRandomSeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: ForceModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: ForceModule.inWorldSpace
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: ForceModule.x.scalar
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: ForceModule.y.scalar
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: EmissionModule.m_BurstCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].minCount
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].maxCount
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].cycleCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].repeatInterval
+      value: 0.01
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8a39b443f0e344ca1a7c0726403ca894, type: 2}
@@ -368,7 +452,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdd972ad327d24629baf31c8a784cfa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interval: 10
+  interval: 5
   OnTimer:
     m_PersistentCalls:
       m_Calls:
@@ -425,7 +509,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 968920077}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bfaa99c1b6d9465794c781db5f49dac, type: 3}
+  m_Script: {fileID: 11500000, guid: eea07da4188564d28902e6a51b148f03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectToSpawn: {fileID: 1427646797565670, guid: d21fcc503b53e4e588562a9f7776fd25,
@@ -436,7 +520,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   RandomVariation: 1
-  TopPositionToSpawn: 9
+  TopPositionToSpawn: 8
 --- !u!114 &968920084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -448,11 +532,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdd972ad327d24629baf31c8a784cfa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interval: 15
+  interval: 8
   OnTimer:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 968920081}
+      - m_Target: {fileID: 968920083}
         m_MethodName: Spawn
         m_Mode: 1
         m_Arguments:

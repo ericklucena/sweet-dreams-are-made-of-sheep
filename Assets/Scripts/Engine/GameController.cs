@@ -8,6 +8,7 @@ public class GameController
     public float XCenter { get; private set; }
     public float XLeft { get; private set; }
     public float XRight { get; private set; }
+    public bool Playing { get; set; }
 
     public static GameController Instance
     {
@@ -22,6 +23,8 @@ public class GameController
 
     public GameController()
     {
+        Playing = true;
+
         if (Speed == 0)
             Speed = 1;
         
@@ -35,6 +38,7 @@ public class GameController
     public void RestartAfterDeath(){
         //Death - Game Over
         Speed = 0;
+        Playing = false;
 		Application.Quit();
     }
 
