@@ -71,9 +71,6 @@ public class PlayerController : MonoBehaviour {
             List<ParticleSystem> particle = _behaviour.gameObject.GetComponentsInChildren<ParticleSystem>().ToList();
             particle.Where(p => p.CompareTag("Sheep")).ToList().ForEach(p => p.Play());
 
-            AudioSource audio = collision.gameObject.GetComponent<AudioSource>();
-            audio.Play();
-
 			GameController.Instance.AddSheepPoint();
             Destroy(collision.gameObject);
             _AddLife();
@@ -82,9 +79,6 @@ public class PlayerController : MonoBehaviour {
 			//Executa a partícula
 			List<ParticleSystem> particle = _behaviour.gameObject.GetComponentsInChildren<ParticleSystem>().ToList();
 			particle.Where(p => p.CompareTag("Enemy")).ToList().ForEach(p => p.Play());
-
-			AudioSource audio = collision.gameObject.GetComponent<AudioSource>();
-			audio.Play();
 
             GameController.Instance.RemoveSheepPoint();
             Destroy(collision.gameObject);
