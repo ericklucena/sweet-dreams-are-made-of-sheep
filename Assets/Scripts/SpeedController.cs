@@ -13,6 +13,7 @@ public class SpeedController : MonoBehaviour {
 	void Start () {
         _clock = StartSpeed;
         _init = DateTime.Now;
+        GameController.Instance.Speed = StartSpeed;
 	}
 	
 	// Update is called once per frame

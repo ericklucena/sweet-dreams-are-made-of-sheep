@@ -30,15 +30,36 @@ public class PlayerController : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Sheep"))
+		if (collision.gameObject.CompareTag("Obstacle"))
 		{
+            GameController.Instance.RestartAfterDeath();
+		}
+        else if (collision.gameObject.CompareTag("Sheep"))
+		{
+            //Executa a partícula
+            ParticleSystem particle = _behaviour.gameObject.GetComponent<ParticleSystem>();
+            particle.Play();
+
 			Destroy(collision.gameObject);
 			_AddLife();
 		}
+        else if (collision.gameObject.CompareTag("Enemy")){
+            Destroy(collision.gameObject);
+            _SubtractLife();
+        }
     }
 
     private void _AddLife(){
         if (life < LifeLimit)
             life++;
     }
+
+	private void _SubtractLife()
+	{
+		if (life > 0)
+			life--;
+
+        if (life <= 0)
+            GameController.Instance.RestartAfterDeath();
+	}
 }

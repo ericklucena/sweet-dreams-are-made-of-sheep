@@ -290,11 +290,13 @@ GameObject:
   m_Component:
   - component: {fileID: 968920079}
   - component: {fileID: 968920078}
-  - component: {fileID: 968920081}
   - component: {fileID: 968920082}
+  - component: {fileID: 968920081}
   - component: {fileID: 968920080}
+  - component: {fileID: 968920083}
+  - component: {fileID: 968920084}
   m_Layer: 0
-  m_Name: back
+  m_Name: Lane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -414,7 +416,55 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf89f5927c4d2412f953cf0c92e279bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartSpeed: 2
+  StartSpeed: 5
+--- !u!114 &968920083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 968920077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bfaa99c1b6d9465794c781db5f49dac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectToSpawn: {fileID: 1427646797565670, guid: d21fcc503b53e4e588562a9f7776fd25,
+    type: 2}
+  OnSpawn:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  RandomVariation: 1
+  TopPositionToSpawn: 9
+--- !u!114 &968920084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 968920077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdd972ad327d24629baf31c8a784cfa3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interval: 15
+  OnTimer:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 968920081}
+        m_MethodName: Spawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!1001 &1323487005
 Prefab:
   m_ObjectHideFlags: 0
