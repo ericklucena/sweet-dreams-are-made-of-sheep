@@ -26,7 +26,7 @@ public class MusicController : MonoBehaviour {
                 break;
         }
 
-        if (current != index)
+        if (current != index && snaps.Length > index)
         {
             current = index;
             snaps[index].TransitionTo(0.1f);

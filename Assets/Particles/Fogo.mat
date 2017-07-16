@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Heart
+  m_Name: Fogo
   m_Shader: {fileID: 200, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -39,7 +39,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 39dea8624121b482bb14d9ddec9682b8, type: 3}
+        m_Texture: {fileID: 2800000, guid: 6479a476ec5e640648e8bfa3d7eed123, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -62,7 +62,7 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _InvFade: 0.01
+    - _InvFade: 0.46
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
@@ -75,4 +75,4 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _TintColor: {r: 1.007353, g: 0.9646477, b: 0.7258867, a: 1}
+    - _TintColor: {r: 0.972, g: 0.8707256, b: 0.86605203, a: 0.722}
