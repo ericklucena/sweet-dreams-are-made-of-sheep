@@ -1,4 +1,5 @@
-﻿﻿using System.Collections;
+﻿using System.Linq;﻿
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -67,14 +68,24 @@ public class PlayerController : MonoBehaviour {
         else if (collision.gameObject.CompareTag("Sheep"))
 		{
             //Executa a partícula
-            ParticleSystem particle = _behaviour.gameObject.GetComponent<ParticleSystem>();
-            particle.Play();
+            List<ParticleSystem> particle = _behaviour.gameObject.GetComponentsInChildren<ParticleSystem>().ToList();
+            particle.Where(p => p.CompareTag("Sheep")).ToList().ForEach(p => p.Play());
+
+            AudioSource audio = collision.gameObject.GetComponent<AudioSource>();
+            audio.Play();
 
 			GameController.Instance.AddSheepPoint();
             Destroy(collision.gameObject);
             _AddLife();
 		}
         else if (collision.gameObject.CompareTag("Enemy")){
+			//Executa a partícula
+			List<ParticleSystem> particle = _behaviour.gameObject.GetComponentsInChildren<ParticleSystem>().ToList();
+			particle.Where(p => p.CompareTag("Enemy")).ToList().ForEach(p => p.Play());
+
+			AudioSource audio = collision.gameObject.GetComponent<AudioSource>();
+			audio.Play();
+
             GameController.Instance.RemoveSheepPoint();
             Destroy(collision.gameObject);
             _SubtractLife();
