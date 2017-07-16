@@ -10,6 +10,7 @@ public class MovementController : MonoBehaviour
 	void Start ()
     {
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
+        m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x, (-GameController.Instance.Speed));
 	}
 	
 	// Update is called once per frame

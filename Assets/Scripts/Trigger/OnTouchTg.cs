@@ -9,11 +9,11 @@ public class OnTouchTg : MonoBehaviour
 
 	public UnityEngine.Events.UnityEvent OnTouch;
 
-	private void OnCollisionEnter(Collision collision)
-	{
-		if (triggersOnAnytTag || collision.collider.CompareTag(TagToCheck))
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+		if (triggersOnAnytTag || collision.CompareTag(TagToCheck))
 		{
 			OnTouch.Invoke();
 		}
-	}
+    }
 }

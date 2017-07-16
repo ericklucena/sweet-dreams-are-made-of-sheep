@@ -5,13 +5,15 @@ using UnityEngine;
 
 public class SpeedController : MonoBehaviour {
 
+    public int StartSpeed;
     private DateTime _init;
     private int _clock;
 
 	// Use this for initialization
 	void Start () {
-        _clock = 1;
+        _clock = StartSpeed;
         _init = DateTime.Now;
+        GameController.Instance.Speed = StartSpeed;
 	}
 	
 	// Update is called once per frame

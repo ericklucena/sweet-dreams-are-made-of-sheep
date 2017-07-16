@@ -6,11 +6,9 @@ using UnityEngine;
 public class ObstacleSpawner 
 {
     private GameObject[] _prefabs;
-    public int TopPositionToSpawn;
 
     public ObstacleSpawner()
     {
-        TopPositionToSpawn = 12;
         Object[] prefabs = Resources.LoadAll("Prefabs/");
 
         if (prefabs != null)
@@ -21,9 +19,9 @@ public class ObstacleSpawner
     }
 	
 	// Update is called once per frame
-    public void SpawnObstacle()
+    public void SpawnObstacle(int topPositionToSpawn)
     {
-        Vector3 position = new Vector3(0, TopPositionToSpawn, 0);
+        Vector3 position = new Vector3(0, topPositionToSpawn, 0);
         int length = _prefabs.Length;
 
         if (length > 1)

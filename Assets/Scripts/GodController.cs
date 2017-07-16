@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GodController : MonoBehaviour {
 
+    public int TopPositionToSpawn;
     private ObstacleSpawner _spawner;
 
     void Start()
@@ -14,9 +15,9 @@ public class GodController : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag.Equals("Scenario")){
-            _spawner.SpawnObstacle();
+            _spawner.SpawnObstacle(TopPositionToSpawn);
         }
-        else if (collision.tag.Equals("Obstacle")){
+        else {
             Destroy(collision.gameObject);
         }
     }
