@@ -5,6 +5,9 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
     public int LifeLimit;
+    public AudioSource goodAudio;
+    public AudioSource badAudio;
+
     private PlayerBehaviour _behaviour;
     private int life;
 
@@ -71,11 +74,13 @@ public class PlayerController : MonoBehaviour {
             particle.Play();
 
 			GameController.Instance.AddSheepPoint();
+            goodAudio.Play();
             Destroy(collision.gameObject);
             _AddLife();
 		}
         else if (collision.gameObject.CompareTag("Enemy")){
             GameController.Instance.RemoveSheepPoint();
+            badAudio.Play();
             Destroy(collision.gameObject);
             _SubtractLife();
         }
