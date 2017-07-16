@@ -21,4 +21,12 @@ public class GodController : MonoBehaviour {
             Destroy(collision.gameObject);
         }
     }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+		if (collision.tag.Equals("Scenario"))
+		{
+			Destroy(collision.gameObject);
+		}
+    }
 }

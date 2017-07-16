@@ -8,6 +8,9 @@ public class GameController
     public float XCenter { get; private set; }
     public float XLeft { get; private set; }
     public float XRight { get; private set; }
+
+    public bool Playing { get; set; }
+
     public int TimePoints { get; private set; }
 	public int SheepPoints { get; set; }
     public int TotalPoints { get { return TimePoints + SheepPoints; }}
@@ -30,6 +33,8 @@ public class GameController
 
     public GameController()
     {
+        Playing = true;
+
         if (Speed == 0)
             Speed = 1;
         
@@ -44,6 +49,7 @@ public class GameController
     {
         //Death - Game Over
         Speed = 0;
+        Playing = false;
 		Application.Quit();
     }
 
