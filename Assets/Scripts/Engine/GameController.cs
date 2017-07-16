@@ -33,7 +33,8 @@ public class GameController
     private static GameController _instance;
 
     public void RestartAfterDeath(){
-		//Death - Game Over
+        //Death - Game Over
+        Speed = 0;
 		Application.Quit();
     }
 
