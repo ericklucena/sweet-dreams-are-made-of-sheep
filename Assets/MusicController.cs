@@ -6,10 +6,11 @@ using UnityEngine.Audio;
 public class MusicController : MonoBehaviour {
     public AudioMixer mixer;
     public AudioMixerSnapshot[] snaps;
+
+    private int current;
 	// Use this for initialization
 	void Start () {
-        //snaps = new AudioMixerSnapshot[];
-        //snaps = mixer.FindSnapshot("");
+        current = 0;
 	}
 	
 	// Update is called once per frame
@@ -25,14 +26,10 @@ public class MusicController : MonoBehaviour {
                 break;
         }
 
-        float[] weigthts = new float[snaps.Length];
-        for (int i = 0; i < snaps.Length; i ++){
-            if (i == index)
-                weigthts[i] = 6;
-            else
-                weigthts[i] = 0;
+        if (current != index)
+        {
+            current = index;
+            snaps[index].TransitionTo(0.1f);
         }
-
-        mixer.TransitionToSnapshots(snaps, weigthts, 0.1f);
 	}
 }
