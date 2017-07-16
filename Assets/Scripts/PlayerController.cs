@@ -75,6 +75,7 @@ public class PlayerController : MonoBehaviour {
             _AddLife();
 		}
         else if (collision.gameObject.CompareTag("Enemy")){
+            GameController.Instance.RemoveSheepPoint();
             Destroy(collision.gameObject);
             _SubtractLife();
         }
