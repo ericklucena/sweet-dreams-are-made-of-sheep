@@ -17,7 +17,7 @@ public class MovementController : MonoBehaviour
     {
 
 		if (m_Rigidbody2D.velocity.y < 0.1)
-			m_Rigidbody2D.velocity = new Vector2(0.1f, 1);
+			m_Rigidbody2D.velocity = new Vector2(0, 1);
         
         m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x, m_Rigidbody2D.velocity.y * (-GameController.Instance.Speed));
 	}
