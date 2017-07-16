@@ -52,6 +52,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4887721022495548}
   - component: {fileID: 61555539265737854}
+  - component: {fileID: 50545815429661964}
   m_Layer: 0
   m_Name: CenterObstacle
   m_TagString: Obstacle
@@ -68,6 +69,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4303878804076376}
   - component: {fileID: 61419942278330072}
+  - component: {fileID: 50072084613352086}
   m_Layer: 0
   m_Name: LeftObstacle
   m_TagString: Obstacle
@@ -118,6 +120,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4186835194257928}
   - component: {fileID: 61165693291664454}
+  - component: {fileID: 50354761821755708}
   m_Layer: 0
   m_Name: RightObstacle
   m_TagString: Obstacle
@@ -222,6 +225,46 @@ Transform:
   m_Father: {fileID: 4303878804076376}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &50072084613352086
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1683825981207894}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
+--- !u!50 &50354761821755708
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1945942113988806}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!50 &50464029199682232
 Rigidbody2D:
   serializedVersion: 4
@@ -241,6 +284,26 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!50 &50545815429661964
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1632527881033232}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!61 &61165693291664454
 BoxCollider2D:

@@ -39,11 +39,11 @@ public class GiftSpawner : MonoBehaviour
         Vector3 position = new Vector3(realPosition, TopPositionToSpawn, 0);
 
         foreach(GameObject go in objects){
-            var meshFilter = go.transform.GetComponent<Collider2D>();
+            var meshFilter = go.GetComponent<Collider2D>();
             if (go.transform.position.Equals(position)
                 || (go.transform.position.x.Equals(position.x) 
                     && (go.transform.position.y + (meshFilter.bounds.size.y /2)) >= position.y )){
-                position.y = (go.transform.position.y + (meshFilter.bounds.size.y / 2)) + 5;
+                position.y = (go.transform.position.y + (meshFilter.bounds.size.y / 2)) + 2;
             }
         }
 

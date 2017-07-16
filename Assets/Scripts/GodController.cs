@@ -17,7 +17,7 @@ public class GodController : MonoBehaviour {
         if (collision.tag.Equals("Scenario")){
             _spawner.SpawnObstacle(TopPositionToSpawn);
         }
-        else if (collision.tag.Equals("Obstacle")){
+        else {
             Destroy(collision.gameObject);
         }
     }
