@@ -2,10 +2,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
 
     public int LifeLimit;
+    public AudioSource goodAudio;
+    public AudioSource badAudio;
+
     private PlayerBehaviour _behaviour;
     private int life;
 
@@ -15,6 +19,7 @@ public class PlayerController : MonoBehaviour {
             LifeLimit = 10;
         
         _behaviour = GetComponent<PlayerBehaviour>();
+        GameController.Instance.RestartAfterDeath();
 	}
 
 
@@ -63,7 +68,7 @@ public class PlayerController : MonoBehaviour {
 		if (collision.gameObject.CompareTag("Obstacle"))
 		{
             GameController.Instance.StopGame();
-            GameController.Instance.RestartAfterDeath();
+            SceneManager.LoadScene("ScoreScene");
 		}
         else if (collision.gameObject.CompareTag("Sheep"))
 		{
@@ -72,6 +77,7 @@ public class PlayerController : MonoBehaviour {
             particle.Where(p => p.CompareTag("Sheep")).ToList().ForEach(p => p.Play());
 
 			GameController.Instance.AddSheepPoint();
+            goodAudio.Play();
             Destroy(collision.gameObject);
             _AddLife();
 		}
@@ -81,6 +87,7 @@ public class PlayerController : MonoBehaviour {
 			particle.Where(p => p.CompareTag("Enemy")).ToList().ForEach(p => p.Play());
 
             GameController.Instance.RemoveSheepPoint();
+            badAudio.Play();
             Destroy(collision.gameObject);
             _SubtractLife();
         }
@@ -97,6 +104,6 @@ public class PlayerController : MonoBehaviour {
 			life--;
 
         if (life <= 0)
-            GameController.Instance.RestartAfterDeath();
+            SceneManager.LoadScene("ScoreScene");
 	}
 }

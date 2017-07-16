@@ -1,6 +1,7 @@
 ﻿﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController
 {
@@ -44,17 +45,17 @@ public class GameController
         XLeft = 3.5f;
 
         Sleepness = 0.5f;
+        ResetTime();
+        SheepPoints = 0;
     }
 
     private static GameController _instance;
 
     public void RestartAfterDeath()
     {
-        //Death - Game Over
-        Speed = 0;
-        Playing = false;
-		Application.Quit();
-    }
+        _instance = new GameController();
+
+	}
 
     public void AddSheepPoint()
     {
@@ -82,7 +83,13 @@ public class GameController
             Sleepness -= 0.001f;         
         }
 
-        Running = Sleepness > 0.0f;
+
+        if (Sleepness < 0) {
+            SceneManager.LoadScene("ScoreScene");
+        }
+
+
+
     }
 
     public void ResetTime()
