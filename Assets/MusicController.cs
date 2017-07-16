@@ -14,6 +14,25 @@ public class MusicController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        //mixer.TransitionToSnapshots(snaps, new float[] { 0.1f }, 0.1f);
+
+        float life = GameController.Instance.Sleepness;
+
+        int index = 1;
+        int lenght = snaps.Length - 1;
+        for (; index <= lenght; index++)
+        {
+            if (((index - 1) * 1/ lenght) < life && life <= (index * 1/ lenght))
+                break;
+        }
+
+        float[] weigthts = new float[snaps.Length];
+        for (int i = 0; i < snaps.Length; i ++){
+            if (i == index)
+                weigthts[i] = 6;
+            else
+                weigthts[i] = 0;
+        }
+
+        mixer.TransitionToSnapshots(snaps, weigthts, 0.1f);
 	}
 }
