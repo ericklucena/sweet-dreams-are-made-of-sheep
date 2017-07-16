@@ -13,12 +13,12 @@ public class GiftSpawner : MonoBehaviour
     private void Start()
     {
         RandomVariation = 1;
-        TopPositionToSpawn = 10;
+        TopPositionToSpawn = 9;
     }
 
     public void Spawn()
     {       
-        List<UnityEngine.GameObject> objects = GameObject.FindGameObjectsWithTag("Obstacle").ToList();
+        List<GameObject> objects = GameObject.FindGameObjectsWithTag("Obstacle").ToList();
 
 		System.Random rnd = new System.Random();
         int xposition = rnd.Next(-RandomVariation, RandomVariation);
@@ -38,10 +38,16 @@ public class GiftSpawner : MonoBehaviour
 
         Vector3 position = new Vector3(realPosition, TopPositionToSpawn, 0);
 
-        if (!objects.Any(o => o.transform.position.Equals(position)))
-        {
-            var obj = GameObject.Instantiate(ObjectToSpawn, position, ObjectToSpawn.transform.rotation);
-            OnSpawn.Invoke();
+        foreach(GameObject go in objects){
+            var meshFilter = go.transform.GetComponent<Collider2D>();
+            if (go.transform.position.Equals(position)
+                || (go.transform.position.x.Equals(position.x) 
+                    && (go.transform.position.y + (meshFilter.bounds.size.y /2)) >= position.y )){
+                position.y = (go.transform.position.y + (meshFilter.bounds.size.y / 2)) + 5;
+            }
         }
+
+        var obj = GameObject.Instantiate(ObjectToSpawn, position, ObjectToSpawn.transform.rotation);
+        OnSpawn.Invoke();
     }
 }
