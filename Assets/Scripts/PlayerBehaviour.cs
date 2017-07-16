@@ -32,8 +32,8 @@ public class PlayerBehaviour : MonoBehaviour
 
         center = m_transform.position;
         right = left = center;
-        left.x -= 4;
-        right.x += 4;
+        left.x -= 3.5f;
+        right.x += 3.5f;
         _speed = 20.0f;
 
         _position = EPosition.center;
