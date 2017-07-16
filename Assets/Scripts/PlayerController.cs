@@ -24,9 +24,12 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-        float x = Input.GetAxis(InputMapper.HORIZONTAL);
-        _behaviour.Move(x);
-        GameController.Instance.RefreshTimePoints();
+        if (GameController.Instance.Running)
+        {
+			float x = Input.GetAxis(InputMapper.HORIZONTAL);
+			_behaviour.Move(x);
+			GameController.Instance.RefreshTimePoints();
+        }
 	}
 
     private void OnTriggerEnter2D(Collider2D collision)

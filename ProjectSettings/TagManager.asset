@@ -51,6 +51,9 @@ TagManager:
   - name: Obstacles
     uniqueID: 1829768295
     locked: 0
+  - name: Sheeps
+    uniqueID: 3556688697
+    locked: 0
   - name: Player
     uniqueID: 99261277
     locked: 0

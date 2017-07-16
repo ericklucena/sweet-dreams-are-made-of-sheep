@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,9 +14,10 @@ public class GameController
     public int TimePoints { get; private set; }
 	public int SheepPoints { get; set; }
     public int TotalPoints { get { return TimePoints + SheepPoints; }}
+    public float Sleepness { get; private set; }
     public float InitTime { get; private set; }
 
-    private bool _Running;
+    public bool Running { get; private set; }
 
     private const int POINTS_PER_SHEEP = 10;
 
@@ -41,6 +42,8 @@ public class GameController
         XCenter = 0;
         XRight = -3.5f;
         XLeft = 3.5f;
+
+        Sleepness = 0.5f;
     }
 
     private static GameController _instance;
@@ -55,13 +58,21 @@ public class GameController
 
     public void AddSheepPoint()
     {
-        if (_Running)
+        if (Running)
             SheepPoints += POINTS_PER_SHEEP;
+
+        Sleepness += 0.25f;
+        
     }
 
     public void RefreshTimePoints() {
-        if (_Running)
-            TimePoints = (int) ((Time.time - InitTime) * 10);
+        if (Running)
+        {
+			TimePoints = (int) ((Time.time - InitTime) * 10);
+            Sleepness -= 0.001f;         
+        }
+
+        Running = Sleepness > 0.0f;
     }
 
     public void ResetTime()
@@ -70,12 +81,12 @@ public class GameController
     }
 
     public void StartGame(){
-        _Running = true;
+        Running = true;
     }
 
 	public void StopGame()
 	{
-        _Running = false;
+        Running = false;
 	}
 
 }
