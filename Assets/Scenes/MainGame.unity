@@ -1196,11 +1196,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 114942062492634704, guid: 527b2a595cabf4e3eadb01c5817cca2c,
-        type: 2}
-      propertyPath: OnTouch.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 114564928066398122, guid: 527b2a595cabf4e3eadb01c5817cca2c,
         type: 2}
       propertyPath: goodAudio
