@@ -27,7 +27,7 @@ public class ObstacleSpawner
         if (length > 1)
         {
             System.Random rnd = new System.Random();
-            int index = rnd.Next(2, length);
+            int index = rnd.Next(2, length+1);
             index--;
 
             GameObject obj = GameObject.Instantiate(_prefabs[index], position, _prefabs[index].transform.rotation);

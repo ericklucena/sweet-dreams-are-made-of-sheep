@@ -8,6 +8,8 @@ TagManager:
   - Scenario
   - Sheep
   - Enemy
+  - SheepParticle
+  - EnemyParticle
   layers:
   - Default
   - TransparentFX

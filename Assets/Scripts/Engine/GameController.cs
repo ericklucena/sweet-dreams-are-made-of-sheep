@@ -62,7 +62,12 @@ public class GameController
         if (Running)
         {
 			SheepPoints += POINTS_PER_SHEEP;
-			Sleepness += 0.25f;
+
+            if (Sleepness < 1)
+			    Sleepness += 0.25f;
+
+            if (Sleepness > 1)
+                Sleepness = 1;
         }
 
     }
